@@ -15,7 +15,8 @@
     "spots_left": 15,
     "waitlist": 0,
     "ta_info": "TA: John Smith (jsmith@fau.edu), Office: EE 405, Hours: Mon 2-4pm",
-    "zoom_link": "N/A"
+    "zoom_link": "N/A",
+    "campus": "Boca Raton"
   },
   {
     "crn": "12346",
@@ -33,7 +34,8 @@
     "spots_left": 0,
     "waitlist": 12,
     "ta_info": "TA: Alice Lee, Hours: Tue 10-12pm via Zoom",
-    "zoom_link": "https://fau.zoom.us/j/123456789"
+    "zoom_link": "https://fau.zoom.us/j/123456789",
+    "campus": "Boca Raton"
   },
   {
     "crn": "12347",
@@ -51,7 +53,8 @@
     "spots_left": 3,
     "waitlist": 0,
     "ta_info": "TA: Bob Davis, Office: GS 201, Hours: Fri 1-3pm",
-    "zoom_link": "N/A"
+    "zoom_link": "N/A",
+    "campus": "Boca Raton"
   },
   {
     "crn": "12348",
@@ -69,6 +72,45 @@
     "spots_left": 5,
     "waitlist": 0,
     "ta_info": "TA: Sarah Connor, Hours: Wed 1-3pm via Zoom",
-    "zoom_link": "N/A"
+    "zoom_link": "N/A",
+    "campus": "Boca Raton"
+  },
+  {
+    "crn": "12349",
+    "subject": "HON",
+    "course_number": "1000",
+    "section": "001",
+    "title": "Honors Freshman Seminar",
+    "credits": 3,
+    "instructor": "Dr. Rachel Green",
+    "days": "MW",
+    "time": "1:00 PM - 2:20 PM",
+    "location": "Harriet L. Wilkes Honors College",
+    "is_online": false,
+    "status": "Open",
+    "spots_left": 8,
+    "waitlist": 0,
+    "ta_info": "N/A",
+    "zoom_link": "N/A",
+    "campus": "Jupiter"
+  },
+  {
+    "crn": "12350",
+    "subject": "LA",
+    "course_number": "2000",
+    "section": "003",
+    "title": "Introduction to Liberal Arts",
+    "credits": 3,
+    "instructor": "Prof. Mark Twain",
+    "days": "TR",
+    "time": "4:00 PM - 5:20 PM",
+    "location": "Liberal Arts 220",
+    "is_online": false,
+    "status": "Waitlist",
+    "spots_left": 0,
+    "waitlist": 5,
+    "ta_info": "N/A",
+    "zoom_link": "N/A",
+    "campus": "Davie"
   }
 ]

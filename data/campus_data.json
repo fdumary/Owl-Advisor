@@ -30,7 +30,35 @@
       "location": "Boca Raton Campus, central",
       "gps": "26.3735, -80.1012",
       "hours": "7am - 11pm",
-      "contact": "561-297-3730"
+      "contact": "561-297-3730",
+      "campus": "Boca Raton"
+    },
+    {
+      "name": "Harriet L. Wilkes Honors College",
+      "code": "HC",
+      "location": "Jupiter Campus",
+      "gps": "26.8845, -80.1132",
+      "hours": "8am - 8pm",
+      "contact": "561-799-8600",
+      "campus": "Jupiter"
+    },
+    {
+      "name": "Liberal Arts",
+      "code": "LA",
+      "location": "Davie Campus",
+      "gps": "26.0815, -80.2422",
+      "hours": "8am - 10pm",
+      "contact": "954-236-1000",
+      "campus": "Davie"
+    },
+    {
+      "name": "Higher Education Complex",
+      "code": "HEC",
+      "location": "Fort Lauderdale Campus",
+      "gps": "26.1213, -80.1415",
+      "hours": "9am - 6pm",
+      "contact": "954-236-1000",
+      "campus": "Fort Lauderdale"
     }
   ],
   "advisors": [
@@ -48,25 +76,50 @@
       "lot_name": "Lot 1",
       "type": "Blue, Red, Metered, EV Charging",
       "spaces_available": 0,
-      "closest_buildings": ["Engineering East", "Science Building"]
+      "closest_buildings": ["Engineering East", "Science Building"],
+      "campus": "Boca Raton"
     },
     {
       "lot_name": "Lot 2",
       "type": "Blue, Red, Motorcycle",
       "spaces_available": 25,
-      "closest_buildings": ["Engineering East", "Business"]
+      "closest_buildings": ["Engineering East", "Business"],
+      "campus": "Boca Raton"
     },
     {
       "lot_name": "Lot 4",
       "type": "Blue, Red",
       "spaces_available": 12,
-      "closest_buildings": ["Engineering East", "College of Nursing"]
+      "closest_buildings": ["Engineering East", "College of Nursing"],
+      "campus": "Boca Raton"
     },
     {
       "lot_name": "Parking Garage 2",
       "type": "All Students / Faculty",
       "spaces_available": 105,
-      "closest_buildings": ["Engineering East", "Arts and Letters"]
+      "closest_buildings": ["Engineering East", "Arts and Letters"],
+      "campus": "Boca Raton"
+    },
+    {
+      "lot_name": "Jupiter Main Lot",
+      "type": "Blue, Red",
+      "spaces_available": 45,
+      "closest_buildings": ["Harriet L. Wilkes Honors College"],
+      "campus": "Jupiter"
+    },
+    {
+      "lot_name": "Davie West Lot",
+      "type": "Blue, Red",
+      "spaces_available": 60,
+      "closest_buildings": ["Liberal Arts"],
+      "campus": "Davie"
+    },
+    {
+      "lot_name": "Downtown Garage",
+      "type": "Metered",
+      "spaces_available": 15,
+      "closest_buildings": ["Higher Education Complex"],
+      "campus": "Fort Lauderdale"
     }
   ]
 }
