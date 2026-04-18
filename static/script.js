@@ -49,6 +49,31 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBox.appendChild(typingDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
         
+        // Attempt to get user location
+        let lat = null;
+        let lon = null;
+        
+        const getLocation = () => new Promise((resolve) => {
+            if (!navigator.geolocation) {
+                resolve();
+            } else {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        lat = position.coords.latitude;
+                        lon = position.coords.longitude;
+                        resolve();
+                    },
+                    (error) => {
+                        console.warn('Geolocation error:', error);
+                        resolve();
+                    },
+                    { timeout: 3000 } // only wait 3 seconds for location so chat doesn't lag
+                );
+            }
+        });
+        
+        await getLocation();
+        
         // Call backend API
         try {
             const response = await fetch('/api/chat', {
@@ -56,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: text })
+                body: JSON.stringify({ message: text, lat: lat, lon: lon })
             });
             
             const data = await response.json();

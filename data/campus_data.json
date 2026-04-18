@@ -9,6 +9,14 @@
       "contact": "561-297-3700"
     },
     {
+      "name": "Business",
+      "code": "BU",
+      "location": "Boca Raton Campus, north side",
+      "gps": "26.3745, -80.1015",
+      "hours": "7am - 10pm",
+      "contact": "561-297-3600"
+    },
+    {
       "name": "Engineering East",
       "code": "EE",
       "location": "Boca Raton Campus, east side",
@@ -37,16 +45,28 @@
   ],
   "parking": [
     {
-      "lot_name": "Lot 1 (Blue Lot)",
-      "type": "Student Commuter",
-      "availability": "Usually full by 10am",
+      "lot_name": "Lot 1",
+      "type": "Blue, Red, Metered, EV Charging",
+      "spaces_available": 0,
       "closest_buildings": ["Engineering East", "Science Building"]
     },
     {
-      "lot_name": "Parking Garage 1",
+      "lot_name": "Lot 2",
+      "type": "Blue, Red, Motorcycle",
+      "spaces_available": 25,
+      "closest_buildings": ["Engineering East", "Business"]
+    },
+    {
+      "lot_name": "Lot 4",
+      "type": "Blue, Red",
+      "spaces_available": 12,
+      "closest_buildings": ["Engineering East", "College of Nursing"]
+    },
+    {
+      "lot_name": "Parking Garage 2",
       "type": "All Students / Faculty",
-      "availability": "Spots usually available on top floor",
-      "closest_buildings": ["Student Union", "Library"]
+      "spaces_available": 105,
+      "closest_buildings": ["Engineering East", "Arts and Letters"]
     }
   ]
 }
