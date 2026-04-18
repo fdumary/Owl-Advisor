@@ -98,7 +98,7 @@ def scrape_live_course(subject, course_number, term="202408"):
         print(f"Scrape error: {e}")
     return []
 
-def scrape_live_subject(subject, term="202408"):
+def scrape_live_subject(subject, term="202408", campus_code=None):
     session = requests.Session()
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -118,6 +118,9 @@ def scrape_live_subject(subject, term="202408"):
             "sortColumn": "subjectDescription",
             "sortDirection": "asc"
         }
+        if campus_code:
+            params["txt_campus"] = campus_code
+            
         res = session.get("https://bannerxe.fau.edu/StudentRegistrationSsb/ssb/searchResults/searchResults", params=params, headers=headers, timeout=5)
         
         if res.status_code == 200:
@@ -148,7 +151,12 @@ def load_data():
             course_data = json.load(f)
     except Exception:
         course_data = []
-    return campus_data, course_data
+    try:
+        with open(os.path.join(base_dir, 'data', 'banner_mappings.json'), 'r') as f:
+            banner_mappings = json.load(f)
+    except Exception:
+        banner_mappings = {"campuses": [], "subjects": []}
+    return campus_data, course_data, banner_mappings
 
 @app.route('/')
 def index():
@@ -160,7 +168,7 @@ def chat():
     user_input = request.json.get('message', '').lower()
     user_lat = request.json.get('lat')
     user_lon = request.json.get('lon')
-    campus_data, course_data = load_data()
+    campus_data, course_data, banner_mappings = load_data()
     response = ""
     
     # Check if the user is asking about a building
@@ -195,6 +203,70 @@ def chat():
         section = section_only_match.group(1) if section_only_match else just_number_match.group(1)
         if session_context['parking_requested'] and 'parking' not in user_input:
             user_input += " parking"
+
+    user_words = set(re.findall(r'\b[a-z]{3,}\b', user_input))
+
+    # 1. Detect Campus from user input
+    detected_campus_code = None
+    detected_campus_name = None
+    best_campus_score = 0
+    
+    for campus in banner_mappings.get('campuses', []):
+        desc = campus['description'].lower()
+        if desc in user_input or desc.split('-')[0].strip() in user_input:
+            detected_campus_code = campus['code']
+            detected_campus_name = campus['description']
+            break
+            
+        campus_words = set(re.findall(r'\b[a-z]{3,}\b', desc.replace('-', ' ')))
+        campus_words -= {'and', 'the', 'for', 'with', 'other', 'learning'}
+        overlap = campus_words.intersection(user_words)
+        score = len(overlap)
+        
+        if score > best_campus_score:
+            best_campus_score = score
+            detected_campus_code = campus['code']
+            detected_campus_name = campus['description']
+            
+    # 2. Detect Subject from user input (either 3-letter code or full description)
+    subject_only_match = None
+    best_score = 0
+    
+    # Check descriptions first (e.g. "ocean engineering")
+    for subj in banner_mappings.get('subjects', []):
+        desc_parts = subj['description'].lower().split('-', 1)
+        if len(desc_parts) > 1:
+            # Perfect match first (e.g. "accounting: general")
+            if desc_parts[1].strip() in user_input:
+                subject_only_match = subj['code']
+                best_score = 100
+                break
+            
+            # Tokenized intersection matching (e.g. "ocean engineering" matches "engineering: ocean")
+            desc_text = desc_parts[1].replace(':', ' ').replace('&', ' ')
+            desc_words = set(re.findall(r'\b[a-z]{3,}\b', desc_text))
+            
+            # Ignore generic words
+            desc_words -= {'and', 'the', 'for', 'with', 'studies', 'general', 'applied', 'other'}
+            
+            overlap = desc_words.intersection(user_words)
+            score = len(overlap)
+            
+            if score > best_score:
+                best_score = score
+                subject_only_match = subj['code']
+            
+    # If no strong description match, check explicitly requested acronyms "cop courses"
+    if not subject_only_match or best_score < 1:
+        subject_intent_match = re.search(r'\b([a-z]{3})\s+(?:course|class|option)es?\b', user_input)
+        if subject_intent_match:
+            subject_only_match = subject_intent_match.group(1).upper()
+        else:
+            unique_subjects = list(set([c['subject'].upper() for c in course_data]))
+            for sub in unique_subjects:
+                if re.search(rf'\b{sub.lower()}\b', user_input):
+                    subject_only_match = sub
+                    break
             
     if subject and course_number:
         
@@ -257,62 +329,51 @@ def chat():
                             response += f"\n\n🚗 **Parking**: I couldn't identify the specific building to give you a parking location. Try Parking Garage 1!"
                     elif 'parking' in user_input:
                         response += "\n\n🚗 **Parking**: This class is online, so no parking is needed!"
-    else:
-        # Check if they explicitly asked for a subject like "cop courses"
-        subject_intent_match = re.search(r'\b([a-z]{3})\s+(?:course|class|option)es?\b', user_input)
-        
-        unique_subjects = list(set([c['subject'].upper() for c in course_data]))
-        subject_only_match = None
-        
-        if subject_intent_match:
-            subject_only_match = subject_intent_match.group(1).upper()
+    elif subject_only_match:
+        available_courses = {}
+        for c in course_data:
+            if c['subject'] == subject_only_match and (not detected_campus_name or c.get('campus', '').lower() == detected_campus_name.lower()):
+                available_courses[c['course_number']] = c['title']
+                
+        # LIVE SCRAPE
+        scraped_subject_courses = scrape_live_subject(subject_only_match, campus_code=detected_campus_code)
+        if scraped_subject_courses:
+            available_courses.update(scraped_subject_courses)
+                
+        if available_courses:
+            campus_str = f" at {detected_campus_name}" if detected_campus_name else ""
+            response = f"I found the following **{subject_only_match}** courses for you{campus_str} (including live catalog results):\n\n"
+            for c_num, title in available_courses.items():
+                response += f"- **{subject_only_match} {c_num}**: {title}\n"
+            response += f"\nWhich one are you interested in? (e.g. 'tell me about {subject_only_match} {list(available_courses.keys())[0]}')"
         else:
-            for sub in unique_subjects:
-                if re.search(rf'\b{sub.lower()}\b', user_input):
-                    subject_only_match = sub
-                    break
-                
-        if subject_only_match:
-            available_courses = {}
-            for c in course_data:
-                if c['subject'] == subject_only_match:
-                    available_courses[c['course_number']] = c['title']
-                    
-            # LIVE SCRAPE
-            scraped_subject_courses = scrape_live_subject(subject_only_match)
-            if scraped_subject_courses:
-                available_courses.update(scraped_subject_courses)
-                    
-            if available_courses:
-                response = f"I found the following **{subject_only_match}** courses for you (including live catalog results):\n\n"
-                for c_num, title in available_courses.items():
-                    response += f"- **{subject_only_match} {c_num}**: {title}\n"
-                response += f"\nWhich one are you interested in? (e.g. 'tell me about {subject_only_match} {list(available_courses.keys())[0]}')"
-            else:
-                response = f"I couldn't find any specific {subject_only_match} courses in the current catalog."
-        elif building_match:
-            b = building_match
-            response = f"The **{b['name']}** ({b['code']}) is located at the {b['location']}. Its hours are: {b['hours']}."
-            if b.get('contact'):
-                response += f" Contact: {b['contact']}."
-                
-            if user_lat is not None and user_lon is not None and b.get('gps'):
-                try:
-                    if b['gps'].strip().lower() != 'tba':
-                        b_lat, b_lon = map(float, b['gps'].split(','))
-                        dist_miles = haversine(float(user_lat), float(user_lon), b_lat, b_lon)
-                        if dist_miles > 2.0:
-                            drive_time_mins = max(1, round((dist_miles / 60.0) * 60))
-                            response += f"\n\nBased on your device's GPS, you are **{dist_miles:.2f} miles** away. Since this is a long distance, you will need to drive to this campus, which takes approximately **{drive_time_mins} minute(s)**."
-                        else:
-                            walk_time_mins = max(1, round(dist_miles * 20))
-                            response += f"\n\nBased on your device's GPS, you are **{dist_miles:.2f} miles** away. It will take you approximately **{walk_time_mins} minute(s)** to walk there."
+            campus_str = f" at {detected_campus_name}" if detected_campus_name else ""
+            response = f"I couldn't find any specific {subject_only_match} courses{campus_str} in the current catalog."
+    elif detected_campus_name:
+        response = f"I see you are looking for classes at the **{detected_campus_name}** campus! Which major or subject are you interested in? (e.g. 'Ocean Engineering' or 'Accounting')"
+    elif building_match:
+        b = building_match
+        response = f"The **{b['name']}** ({b['code']}) is located at the {b['location']}. Its hours are: {b['hours']}."
+        if b.get('contact'):
+            response += f" Contact: {b['contact']}."
+            
+        if user_lat is not None and user_lon is not None and b.get('gps'):
+            try:
+                if b['gps'].strip().lower() != 'tba':
+                    b_lat, b_lon = map(float, b['gps'].split(','))
+                    dist_miles = haversine(float(user_lat), float(user_lon), b_lat, b_lon)
+                    if dist_miles > 2.0:
+                        drive_time_mins = max(1, round((dist_miles / 60.0) * 60))
+                        response += f"\n\nBased on your device's GPS, you are **{dist_miles:.2f} miles** away. Since this is a long distance, you will need to drive to this campus, which takes approximately **{drive_time_mins} minute(s)**."
                     else:
-                        response += "\n\nGPS coordinates are not yet available for this location."
-                except Exception as e:
+                        walk_time_mins = max(1, round(dist_miles * 20))
+                        response += f"\n\nBased on your device's GPS, you are **{dist_miles:.2f} miles** away. It will take you approximately **{walk_time_mins} minute(s)** to walk there."
+                else:
                     response += "\n\nGPS coordinates are not yet available for this location."
-            else:
-                response += "\n\n(If you enable Location Services in your browser, I can calculate your walking distance and time to this building!)"
+            except Exception as e:
+                response += "\n\nGPS coordinates are not yet available for this location."
+        else:
+            response += "\n\n(If you enable Location Services in your browser, I can calculate your walking distance and time to this building!)"
 
     elif 'course' in user_input or 'class' in user_input:
         response = "I can help you find a course! Try asking for specific courses like 'COP 3540 section 001', or 'STA 4821'."

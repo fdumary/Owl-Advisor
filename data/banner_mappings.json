@@ -1,0 +1,914 @@
+{
+  "campuses": [
+    {
+      "code": "01",
+      "description": "Boca Raton"
+    },
+    {
+      "code": "60",
+      "description": "Dania Beach - Sea-Tech"
+    },
+    {
+      "code": "16",
+      "description": "Davie"
+    },
+    {
+      "code": "76",
+      "description": "Distance Learning"
+    },
+    {
+      "code": "17",
+      "description": "Ft Lauderdale"
+    },
+    {
+      "code": "30",
+      "description": "Harbor Branch"
+    },
+    {
+      "code": "18",
+      "description": "Jupiter"
+    },
+    {
+      "code": "99",
+      "description": "Other"
+    },
+    {
+      "code": "31",
+      "description": "Pine Jog"
+    }
+  ],
+  "subjects": [
+    {
+      "code": "ACG",
+      "description": "ACG-Accounting: General"
+    },
+    {
+      "code": "ADE",
+      "description": "ADE-Education: Adult"
+    },
+    {
+      "code": "AFR",
+      "description": "AFR-Air Force ROTC"
+    },
+    {
+      "code": "AMH",
+      "description": "AMH-History: American"
+    },
+    {
+      "code": "AML",
+      "description": "AML-English: American Lit"
+    },
+    {
+      "code": "ANG",
+      "description": "ANG-Anthropology-Graduate"
+    },
+    {
+      "code": "ANT",
+      "description": "ANT-Anthropology-Undergraduate"
+    },
+    {
+      "code": "APK",
+      "description": "APK-Applied Kinesiology"
+    },
+    {
+      "code": "ARA",
+      "description": "ARA-Arabic Language and Lit"
+    },
+    {
+      "code": "ARC",
+      "description": "ARC-Architecture"
+    },
+    {
+      "code": "ARE",
+      "description": "ARE-Education: Art"
+    },
+    {
+      "code": "ARH",
+      "description": "ARH-Art: History"
+    },
+    {
+      "code": "ART",
+      "description": "ART-Art"
+    },
+    {
+      "code": "ASH",
+      "description": "ASH-History: Asian"
+    },
+    {
+      "code": "AST",
+      "description": "AST-Astronomy"
+    },
+    {
+      "code": "BCH",
+      "description": "BCH-Biochemistry"
+    },
+    {
+      "code": "BME",
+      "description": "BME-Biomedical Engineering"
+    },
+    {
+      "code": "BMS",
+      "description": "BMS-Biomedical Science"
+    },
+    {
+      "code": "BOT",
+      "description": "BOT-Biology: Botany"
+    },
+    {
+      "code": "BSC",
+      "description": "BSC-Biology: Biologicl Science"
+    },
+    {
+      "code": "BUL",
+      "description": "BUL-Business Law"
+    },
+    {
+      "code": "CAP",
+      "description": "CAP-Computer Applications"
+    },
+    {
+      "code": "CBH",
+      "description": "CBH-Biology: Compr Anml Behavr"
+    },
+    {
+      "code": "CCJ",
+      "description": "CCJ-Criminal Justice"
+    },
+    {
+      "code": "CDA",
+      "description": "CDA-Computer Design/Architectr"
+    },
+    {
+      "code": "CEG",
+      "description": "CEG-Engineering: Civil Geotech"
+    },
+    {
+      "code": "CEN",
+      "description": "CEN-Computer Engineering"
+    },
+    {
+      "code": "CES",
+      "description": "CES-Engnrng: Civil, Structures"
+    },
+    {
+      "code": "CGN",
+      "description": "CGN-Engineering: Civil"
+    },
+    {
+      "code": "CGS",
+      "description": "CGS-Computer: General Studies"
+    },
+    {
+      "code": "CHM",
+      "description": "CHM-Chemistry"
+    },
+    {
+      "code": "CHS",
+      "description": "CHS-Chemistry: Specialized"
+    },
+    {
+      "code": "CIS",
+      "description": "CIS-Computer Info Systems"
+    },
+    {
+      "code": "CJC",
+      "description": "CJC-Criminal Justice: Corrctns"
+    },
+    {
+      "code": "CJE",
+      "description": "CJE-Crim Justice: Law Enfrcmnt"
+    },
+    {
+      "code": "CJL",
+      "description": "CJL-Crim Justice: Law &amp; Prcess"
+    },
+    {
+      "code": "CLP",
+      "description": "CLP-Psychology: Clinical"
+    },
+    {
+      "code": "CNT",
+      "description": "CNT-Computer Networking"
+    },
+    {
+      "code": "COM",
+      "description": "COM-Communication"
+    },
+    {
+      "code": "COP",
+      "description": "COP-Computer Programming"
+    },
+    {
+      "code": "COT",
+      "description": "COT-Computing Theory"
+    },
+    {
+      "code": "CPO",
+      "description": "CPO-Politicl Sci: Compr Poltcs"
+    },
+    {
+      "code": "CRW",
+      "description": "CRW-English: Creative Writing"
+    },
+    {
+      "code": "CST",
+      "description": "CST-Comparative Studies"
+    },
+    {
+      "code": "CWR",
+      "description": "CWR-Enginrng: Civil, Water Res"
+    },
+    {
+      "code": "DAA",
+      "description": "DAA-Dance Activities"
+    },
+    {
+      "code": "DAN",
+      "description": "DAN-Dance"
+    },
+    {
+      "code": "DEP",
+      "description": "DEP-Psychology: Developmental"
+    },
+    {
+      "code": "DIG",
+      "description": "DIG-Digital Media"
+    },
+    {
+      "code": "DSC",
+      "description": "DSC-Domestic Security"
+    },
+    {
+      "code": "ECM",
+      "description": "ECM-Engineering: Computer Math"
+    },
+    {
+      "code": "ECO",
+      "description": "ECO-Economics"
+    },
+    {
+      "code": "ECP",
+      "description": "ECP-Econ of Poverty &amp; Welfare"
+    },
+    {
+      "code": "ECS",
+      "description": "ECS-Economic Systems"
+    },
+    {
+      "code": "EDA",
+      "description": "EDA-Education: Administration"
+    },
+    {
+      "code": "EDE",
+      "description": "EDE-Education: Elementary"
+    },
+    {
+      "code": "EDF",
+      "description": "EDF-Education: Foundations"
+    },
+    {
+      "code": "EDG",
+      "description": "EDG-Education: General"
+    },
+    {
+      "code": "EDH",
+      "description": "EDH-Education: Higher Educatn"
+    },
+    {
+      "code": "EDS",
+      "description": "EDS-Education: Supervision"
+    },
+    {
+      "code": "EEC",
+      "description": "EEC-Education: Early Childhood"
+    },
+    {
+      "code": "EEE",
+      "description": "EEE-Engrg: Elctrical/Elctronic"
+    },
+    {
+      "code": "EEL",
+      "description": "EEL-Engineering: Electrical"
+    },
+    {
+      "code": "EEX",
+      "description": "EEX-Education: Excptnl Student"
+    },
+    {
+      "code": "EGM",
+      "description": "EGM-Engineering: Science"
+    },
+    {
+      "code": "EGN",
+      "description": "EGN-Engineering: General"
+    },
+    {
+      "code": "EGS",
+      "description": "EGS-Engineering: Support"
+    },
+    {
+      "code": "EME",
+      "description": "EME-Educatn: Technlgy &amp; Media"
+    },
+    {
+      "code": "EML",
+      "description": "EML-Engineering: Mechanical"
+    },
+    {
+      "code": "ENC",
+      "description": "ENC-English: Composition"
+    },
+    {
+      "code": "ENG",
+      "description": "ENG-English"
+    },
+    {
+      "code": "ENL",
+      "description": "ENL-English: Literature"
+    },
+    {
+      "code": "ENT",
+      "description": "ENT-Entrepreneurship"
+    },
+    {
+      "code": "ENV",
+      "description": "ENV-Engineering: Environmental"
+    },
+    {
+      "code": "EOC",
+      "description": "EOC-Engineering: Ocean"
+    },
+    {
+      "code": "ESC",
+      "description": "ESC-Geology: Earth Science"
+    },
+    {
+      "code": "ESE",
+      "description": "ESE-Education: Secondary"
+    },
+    {
+      "code": "ETG",
+      "description": "ETG - Engineering Tech:General"
+    },
+    {
+      "code": "EUH",
+      "description": "EUH-History: European"
+    },
+    {
+      "code": "EVR",
+      "description": "EVR-Environmental Studies"
+    },
+    {
+      "code": "EVS",
+      "description": "EVS-Environmental Science"
+    },
+    {
+      "code": "EXP",
+      "description": "EXP-Psychology: Experimental"
+    },
+    {
+      "code": "FES",
+      "description": "FES Fire and Emergency Service"
+    },
+    {
+      "code": "FIL",
+      "description": "FIL-Communication: Film"
+    },
+    {
+      "code": "FIN",
+      "description": "FIN-Finance"
+    },
+    {
+      "code": "FLE",
+      "description": "FLE-Educatn: Foreign Language"
+    },
+    {
+      "code": "FOL",
+      "description": "FOL-Foreign &amp; Biblicl Languags"
+    },
+    {
+      "code": "FRE",
+      "description": "FRE-French"
+    },
+    {
+      "code": "FRW",
+      "description": "FRW-French Literature"
+    },
+    {
+      "code": "GEA",
+      "description": "GEA-Geography: Regional Areas"
+    },
+    {
+      "code": "GEB",
+      "description": "GEB-General Business"
+    },
+    {
+      "code": "GEO",
+      "description": "GEO-Geography"
+    },
+    {
+      "code": "GER",
+      "description": "GER-German"
+    },
+    {
+      "code": "GIS",
+      "description": "GIS-Geographc Information Syst"
+    },
+    {
+      "code": "GLY",
+      "description": "GLY-Geology"
+    },
+    {
+      "code": "GMS",
+      "description": "GMS-Graduate Medical Sciences"
+    },
+    {
+      "code": "GRA",
+      "description": "GRA-Graphic Arts"
+    },
+    {
+      "code": "HBR",
+      "description": "HBR-Hebrew"
+    },
+    {
+      "code": "HFT",
+      "description": "HFT-Hospitality Management"
+    },
+    {
+      "code": "HIS",
+      "description": "HIS-History"
+    },
+    {
+      "code": "HSA",
+      "description": "HSA-Health Services Adminstrtn"
+    },
+    {
+      "code": "HSC",
+      "description": "HSC-Health Sciences"
+    },
+    {
+      "code": "HUM",
+      "description": "HUM-Humanities"
+    },
+    {
+      "code": "IDH",
+      "description": "IDH-Interdisciplinary Honors"
+    },
+    {
+      "code": "IDS",
+      "description": "IDS-Interdisciplinary Studies"
+    },
+    {
+      "code": "INR",
+      "description": "INR-Politicl Sci: Intl Relatns"
+    },
+    {
+      "code": "ISC",
+      "description": "ISC-Interdisciplinary Science"
+    },
+    {
+      "code": "ISM",
+      "description": "ISM-Info Systems Management"
+    },
+    {
+      "code": "ISS",
+      "description": "ISS-Interdiscplinry Social Sci"
+    },
+    {
+      "code": "ITA",
+      "description": "ITA-Italian"
+    },
+    {
+      "code": "ITT",
+      "description": "ITT-Italian Lit in Translation"
+    },
+    {
+      "code": "ITW",
+      "description": "ITW-Italian Literature"
+    },
+    {
+      "code": "JOU",
+      "description": "JOU-Communication: Journalism"
+    },
+    {
+      "code": "JPN",
+      "description": "JPN-Japanese"
+    },
+    {
+      "code": "JPT",
+      "description": "JPT-Japanese Culture in Trans"
+    },
+    {
+      "code": "JST",
+      "description": "JST-Jewish/Judaic Studies"
+    },
+    {
+      "code": "LAE",
+      "description": "LAE-Education: Language Arts"
+    },
+    {
+      "code": "LAH",
+      "description": "LAH-History: Latin American"
+    },
+    {
+      "code": "LAS",
+      "description": "LAS-Latin American Studies"
+    },
+    {
+      "code": "LDR",
+      "description": "LDR-Leadership Studies"
+    },
+    {
+      "code": "LIN",
+      "description": "LIN-Linguistics"
+    },
+    {
+      "code": "LIT",
+      "description": "LIT-Literature"
+    },
+    {
+      "code": "MAA",
+      "description": "MAA-Mathematics-Analysis"
+    },
+    {
+      "code": "MAC",
+      "description": "MAC-Mathematics-Calc PreCalc"
+    },
+    {
+      "code": "MAD",
+      "description": "MAD-Mathematics-Discrete"
+    },
+    {
+      "code": "MAE",
+      "description": "MAE-Mathematics-Education"
+    },
+    {
+      "code": "MAN",
+      "description": "MAN-Management"
+    },
+    {
+      "code": "MAP",
+      "description": "MAP-Mathematics-Applied"
+    },
+    {
+      "code": "MAR",
+      "description": "MAR-Marketing"
+    },
+    {
+      "code": "MAS",
+      "description": "MAS-Math-Algebraic Structures"
+    },
+    {
+      "code": "MAT",
+      "description": "MAT-Mathematics"
+    },
+    {
+      "code": "MCB",
+      "description": "MCB-Biology: Microbiology"
+    },
+    {
+      "code": "MET",
+      "description": "MET-Meteorology"
+    },
+    {
+      "code": "MGF",
+      "description": "MGF-Math: General and Finite"
+    },
+    {
+      "code": "MHF",
+      "description": "MHF-Math: Historical Foundatns"
+    },
+    {
+      "code": "MHS",
+      "description": "MHS-Educatn: Mental Hlth Svcs"
+    },
+    {
+      "code": "MMC",
+      "description": "MMC-Communication: Mass Media"
+    },
+    {
+      "code": "MSL",
+      "description": "MSL-Military Science"
+    },
+    {
+      "code": "MTG",
+      "description": "MTG-Mathematics: Geometry"
+    },
+    {
+      "code": "MUC",
+      "description": "MUC-Music: Composition"
+    },
+    {
+      "code": "MUE",
+      "description": "MUE-Music: Education"
+    },
+    {
+      "code": "MUG",
+      "description": "MUG-Music: Conducting"
+    },
+    {
+      "code": "MUH",
+      "description": "MUH-Music: History"
+    },
+    {
+      "code": "MUL",
+      "description": "MUL-Music: Literature"
+    },
+    {
+      "code": "MUM",
+      "description": "MUM-Music: Commercial"
+    },
+    {
+      "code": "MUN",
+      "description": "MUN-Music: Ensembles"
+    },
+    {
+      "code": "MUO",
+      "description": "MUO-Music: Opera/Musicl Theatr"
+    },
+    {
+      "code": "MUS",
+      "description": "MUS-Music"
+    },
+    {
+      "code": "MUT",
+      "description": "MUT-Music: Theory"
+    },
+    {
+      "code": "MVB",
+      "description": "MVB-Applied Music: Brass"
+    },
+    {
+      "code": "MVJ",
+      "description": "MVJ-Applied Music: Jazz Elemnt"
+    },
+    {
+      "code": "MVK",
+      "description": "MVK-Applied Music: Keyboard"
+    },
+    {
+      "code": "MVO",
+      "description": "MVO-Applied Music: Other"
+    },
+    {
+      "code": "MVP",
+      "description": "MVP-Applied Music: Percussion"
+    },
+    {
+      "code": "MVS",
+      "description": "MVS-Applied Music: Strings"
+    },
+    {
+      "code": "MVV",
+      "description": "MVV-Applied Music: Voice"
+    },
+    {
+      "code": "MVW",
+      "description": "MVW-Applied Music: Woodwinds"
+    },
+    {
+      "code": "NGR",
+      "description": "NGR-Nursing: Graduate"
+    },
+    {
+      "code": "NUR",
+      "description": "NUR-Nursing"
+    },
+    {
+      "code": "OCB",
+      "description": "OCB-Oceanography - Biological"
+    },
+    {
+      "code": "OCE",
+      "description": "OCE-Engineering: Oceanography"
+    },
+    {
+      "code": "PAD",
+      "description": "PAD-Public Adminstration"
+    },
+    {
+      "code": "PAX",
+      "description": "PAX-Peace Studies"
+    },
+    {
+      "code": "PCB",
+      "description": "PCB-Biology: Process Cell"
+    },
+    {
+      "code": "PEM",
+      "description": "PEM-Ed: P.E.ActGen Prf Cnt-Lnd"
+    },
+    {
+      "code": "PEP",
+      "description": "PEP-Ed: P.E.ActPro-Prf Cnt-Lnd"
+    },
+    {
+      "code": "PET",
+      "description": "PET-Education: P.E. Theory"
+    },
+    {
+      "code": "PGY",
+      "description": "PGY-Art: Photography"
+    },
+    {
+      "code": "PHH",
+      "description": "PHH-Philosphy: Hist of Phlsphy"
+    },
+    {
+      "code": "PHI",
+      "description": "PHI-Philosophy"
+    },
+    {
+      "code": "PHP",
+      "description": "PHP-Philosophers and Schools"
+    },
+    {
+      "code": "PHY",
+      "description": "PHY-Physics"
+    },
+    {
+      "code": "PHZ",
+      "description": "PHZ-Physics: Continued"
+    },
+    {
+      "code": "POS",
+      "description": "POS-Political Science"
+    },
+    {
+      "code": "POT",
+      "description": "POT-Political Theory"
+    },
+    {
+      "code": "PPE",
+      "description": "PPE-Psychology: Personality"
+    },
+    {
+      "code": "PSB",
+      "description": "PSB-Psychobiology"
+    },
+    {
+      "code": "PSC",
+      "description": "PSC-Physical Science"
+    },
+    {
+      "code": "PSY",
+      "description": "PSY-Psychology"
+    },
+    {
+      "code": "PUP",
+      "description": "PUP-Public Policy"
+    },
+    {
+      "code": "PUR",
+      "description": "PUR-Public Relations"
+    },
+    {
+      "code": "QMB",
+      "description": "QMB-Quantitatve Methods in Bus"
+    },
+    {
+      "code": "RAT",
+      "description": "RAT-Radiation Therapy"
+    },
+    {
+      "code": "RCS",
+      "description": "RCS-Rehbiltatn Counseling Svcs"
+    },
+    {
+      "code": "REA",
+      "description": "REA - Reading"
+    },
+    {
+      "code": "RED",
+      "description": "RED-Education: Reading"
+    },
+    {
+      "code": "REE",
+      "description": "REE-Real Estate"
+    },
+    {
+      "code": "RMI",
+      "description": "RMI-Risk Managemnt &amp; Insurance"
+    },
+    {
+      "code": "RTV",
+      "description": "RTV-Communication: Radio &amp; TV"
+    },
+    {
+      "code": "SCE",
+      "description": "SCE-Educatn: Science Education"
+    },
+    {
+      "code": "SDS",
+      "description": "SDS-Educatn: Student Dvlp Svcs"
+    },
+    {
+      "code": "SLS",
+      "description": "SLS-Student Life Skills"
+    },
+    {
+      "code": "SOP",
+      "description": "SOP-Social Psychology"
+    },
+    {
+      "code": "SOW",
+      "description": "SOW-Social Work"
+    },
+    {
+      "code": "SPA",
+      "description": "SPA-Speech Pathology"
+    },
+    {
+      "code": "SPB",
+      "description": "SPB-Sports Business"
+    },
+    {
+      "code": "SPC",
+      "description": "SPC-Communication: Speech"
+    },
+    {
+      "code": "SPN",
+      "description": "SPN-Spanish"
+    },
+    {
+      "code": "SPW",
+      "description": "SPW-Spanish Literature"
+    },
+    {
+      "code": "SSE",
+      "description": "SSE-Education: Social Studies"
+    },
+    {
+      "code": "STA",
+      "description": "STA-Statistics"
+    },
+    {
+      "code": "SUR",
+      "description": "SUR-Engrg: Surveying/ Mapping"
+    },
+    {
+      "code": "SYA",
+      "description": "SYA-Sociology: Analysis"
+    },
+    {
+      "code": "SYD",
+      "description": "SYD-Sociology: Demography"
+    },
+    {
+      "code": "SYG",
+      "description": "SYG-Sociology"
+    },
+    {
+      "code": "SYO",
+      "description": "SYO-Sociology: Social Organztn"
+    },
+    {
+      "code": "SYP",
+      "description": "SYP-Sociolgy: Social Processes"
+    },
+    {
+      "code": "TAX",
+      "description": "TAX-Accounting: Taxation"
+    },
+    {
+      "code": "THE",
+      "description": "THE-Theatre"
+    },
+    {
+      "code": "TPA",
+      "description": "TPA-Theatre Prod &amp; Admin"
+    },
+    {
+      "code": "TPP",
+      "description": "TPP-Theatre Performance"
+    },
+    {
+      "code": "TSL",
+      "description": "TSL-Ed: Teachng Engl 2nd Lang"
+    },
+    {
+      "code": "TTE",
+      "description": "TTE-Transportation Engineering"
+    },
+    {
+      "code": "URP",
+      "description": "URP-Urban &amp; Regional Planning"
+    },
+    {
+      "code": "VIC",
+      "description": "VIC-Visual Communication"
+    },
+    {
+      "code": "WOH",
+      "description": "WOH-History: World History"
+    },
+    {
+      "code": "WST",
+      "description": "WST-Women&#39;s Studies"
+    },
+    {
+      "code": "ZOO",
+      "description": "ZOO-Biology: Zoology"
+    }
+  ]
+}
