@@ -2,6 +2,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
+    const floatingOwl = document.getElementById('floating-owl');
+    const chatContainer = document.getElementById('chat-container');
+    const hero = document.getElementById('hero');
+
+    // Handle floating owl click
+    floatingOwl.addEventListener('click', () => {
+        floatingOwl.classList.add('fade-out');
+        
+        setTimeout(() => {
+            floatingOwl.classList.add('hidden');
+            chatContainer.classList.remove('hidden');
+            // Optional: hide or shrink hero for more space
+            hero.style.height = '0';
+            hero.style.opacity = '0';
+            hero.style.margin = '0';
+            hero.style.overflow = 'hidden';
+            userInput.focus();
+        }, 500); // Matches CSS transition duration
+    });
 
     function addMessage(text, isUser = false) {
         const messageDiv = document.createElement('div');

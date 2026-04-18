@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owl-Advisor | FAU AI Assistant</title>
+    <title>Owl Advisor</title>
     <meta name="description"
         content="An AI assistant for Florida Atlantic University course registration, campus navigation, and advising.">
     <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
         <header>
             <div class="logo">
                 <div class="owl-icon">🦉</div>
-                <h1>Owl-Advisor</h1>
+                <h1>Owl Advisor</h1>
             </div>
             <nav>
                 <ul>
@@ -29,12 +29,19 @@
         </header>
 
         <main>
-            <div class="hero">
+            <div class="hero" id="hero">
                 <h2><span>Master Your Schedule</span></h2>
                 <p>Your AI-powered guide for FAU courses, campus locations, and seamless registration. Ask anything!</p>
             </div>
 
-            <div class="chat-container">
+            <div class="floating-owl-container" id="floating-owl">
+                <div class="tooltip-bubble">
+                    Hello! I'm your Owl Advisor. I can help you with courses, campus location, and registration. Ask me anything!
+                </div>
+                <div class="big-owl-icon">🦉</div>
+            </div>
+
+            <div class="chat-container hidden" id="chat-container">
                 <div class="chat-box" id="chat-box">
                     <div class="message ai-message">
                         <div class="avatar">🦉</div>

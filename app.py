@@ -135,6 +135,7 @@ def chat():
     # Check for course
     course_match = re.search(r'([a-z]{3})\s*(\d{4})(?:\s+(?:section|sec|#)\s*0*([a-z0-9]+))?', user_input)
     section_only_match = re.search(r'(?:section|sec|#)\s*0*([a-z0-9]+)', user_input)
+    just_number_match = re.fullmatch(r'0*(\d{1,3}[a-z]?)', user_input.strip())
     
     subject = None
     course_number = None
@@ -148,10 +149,10 @@ def chat():
         session_context['subject'] = subject
         session_context['course_number'] = course_number
         session_context['parking_requested'] = 'parking' in user_input
-    elif section_only_match and session_context['subject']:
+    elif (section_only_match or just_number_match) and session_context['subject']:
         subject = session_context['subject']
         course_number = session_context['course_number']
-        section = section_only_match.group(1)
+        section = section_only_match.group(1) if section_only_match else just_number_match.group(1)
         if session_context['parking_requested'] and 'parking' not in user_input:
             user_input += " parking"
             

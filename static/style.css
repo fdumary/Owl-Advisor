@@ -19,8 +19,8 @@
 body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
@@ -48,7 +48,7 @@ body {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* Header */
@@ -107,13 +107,16 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 0;
+    padding: 20px 0;
+    position: relative;
+    justify-content: center;
 }
 
 .hero {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     animation: fadeInDown 1s ease-out forwards;
+    transition: opacity 0.5s ease, height 0.5s ease;
 }
 
 .hero h2 {
@@ -148,9 +151,73 @@ main {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    height: 500px;
-    animation: fadeInUp 1s ease-out 0.2s forwards;
+    flex: 1;
+    max-height: calc(100vh - 220px);
+    animation: fadeInUp 0.5s ease-out forwards;
     opacity: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Floating Owl */
+.floating-owl-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.floating-owl-container.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -60%);
+}
+
+.big-owl-icon {
+    font-size: 6rem;
+    animation: floatUpDown 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.floating-owl-container:hover .big-owl-icon {
+    transform: scale(1.1);
+}
+
+.tooltip-bubble {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 350px;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    position: relative;
+}
+
+.tooltip-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--glass-border) transparent transparent transparent;
 }
 
 .chat-box {
@@ -283,6 +350,16 @@ footer {
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @keyframes messagePop {
