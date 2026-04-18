@@ -2,18 +2,20 @@ from flask import Flask, send_from_directory, request, jsonify
 import json
 import os
 
-app = Flask(__name__, static_folder='static', static_url_path='')
+base_dir = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, static_folder=os.path.join(base_dir, 'static'), static_url_path='')
 
 # Load data
 def load_data():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
     try:
-        with open('data/campus_data.json', 'r') as f:
+        with open(os.path.join(base_dir, 'data', 'campus_data.json'), 'r') as f:
             campus_data = json.load(f)
     except Exception:
         campus_data = {}
         
     try:
-        with open('data/course_data.json', 'r') as f:
+        with open(os.path.join(base_dir, 'data', 'course_data.json'), 'r') as f:
             course_data = json.load(f)
     except Exception:
         course_data = []
@@ -22,7 +24,7 @@ def load_data():
 
 @app.route('/')
 def index():
-    return send_from_directory('static', 'index.html')
+    return send_from_directory(os.path.join(base_dir, 'static'), 'index.html')
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
