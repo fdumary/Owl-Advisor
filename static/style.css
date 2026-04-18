@@ -157,28 +157,50 @@ main {
     opacity: 0;
 }
 
+.chat-header {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 10px;
+}
+
+#close-chat-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+#close-chat-btn:hover {
+    color: var(--text-primary);
+}
+
 .hidden {
     display: none !important;
 }
 
 /* Floating Owl */
 .floating-owl-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     z-index: 100;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 20px;
 }
 
 .floating-owl-container.fade-out {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -60%);
+    transform: scale(0.9);
 }
 
 .big-owl-icon {
@@ -201,7 +223,7 @@ main {
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    margin-top: 30px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     text-align: center;
     width: 350px;
@@ -212,12 +234,12 @@ main {
 .tooltip-bubble::after {
     content: '';
     position: absolute;
-    bottom: -19px;
+    top: -19px;
     left: 50%;
     transform: translateX(-50%);
-    border-width: 10px 10px 0;
+    border-width: 0 10px 10px 10px;
     border-style: solid;
-    border-color: var(--glass-border) transparent transparent transparent;
+    border-color: transparent transparent var(--glass-border) transparent;
 }
 
 .chat-box {

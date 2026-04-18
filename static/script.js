@@ -14,13 +14,34 @@ document.addEventListener('DOMContentLoaded', () => {
             floatingOwl.classList.add('hidden');
             chatContainer.classList.remove('hidden');
             // Optional: hide or shrink hero for more space
-            hero.style.height = '0';
-            hero.style.opacity = '0';
-            hero.style.margin = '0';
-            hero.style.overflow = 'hidden';
+            if (hero) {
+                hero.style.height = '0';
+                hero.style.opacity = '0';
+                hero.style.margin = '0';
+                hero.style.overflow = 'hidden';
+            }
             userInput.focus();
         }, 500); // Matches CSS transition duration
     });
+    
+    // Handle back button click
+    const closeChatBtn = document.getElementById('close-chat-btn');
+    if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', () => {
+            chatContainer.classList.add('hidden');
+            floatingOwl.classList.remove('hidden');
+            
+            // Short delay to let browser process display block before opacity transition
+            setTimeout(() => {
+                floatingOwl.classList.remove('fade-out');
+                if (hero) {
+                    hero.style.height = 'auto';
+                    hero.style.opacity = '1';
+                    hero.style.margin = '0 0 20px 0';
+                }
+            }, 50);
+        });
+    }
 
     function addMessage(text, isUser = false) {
         const messageDiv = document.createElement('div');
