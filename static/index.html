@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl-Advisor | FAU AI Assistant</title>
+    <meta name="description"
+        content="An AI assistant for Florida Atlantic University course registration, campus navigation, and advising.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-anim"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="owl-icon">🦉</div>
+                <h1>Owl-Advisor</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="hero">
+                <h2><span>Master Your Schedule</span></h2>
+                <p>Your AI-powered guide for FAU courses, campus locations, and seamless registration. Ask anything!</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="message ai-message">
+                        <div class="avatar">🦉</div>
+                        <div class="text">Hello! I'm Owl-Advisor. I can help you find courses, check waitlists, locate
+                            buildings, or contact your advisor. How can I assist you today?</div>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="user-input"
+                        placeholder="e.g., Where is the library? or Find me an open COP 3530 class..."
+                        autocomplete="off">
+                    <button id="send-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Owl-Advisor Hackathon Team. Built for Florida Atlantic University.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

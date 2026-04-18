@@ -1,0 +1,52 @@
+{
+  "buildings": [
+    {
+      "name": "S.E. Wimberly Library",
+      "code": "LY",
+      "location": "Boca Raton Campus, central area",
+      "gps": "26.3719, -80.1009",
+      "hours": "Mon-Thu: 8am-Midnight, Fri: 8am-6pm, Sat: 10am-6pm, Sun: Noon-Midnight",
+      "contact": "561-297-3700"
+    },
+    {
+      "name": "Engineering East",
+      "code": "EE",
+      "location": "Boca Raton Campus, east side",
+      "gps": "26.3722, -80.0988",
+      "hours": "7am - 10pm",
+      "contact": "561-297-3400"
+    },
+    {
+      "name": "Student Union",
+      "code": "SU",
+      "location": "Boca Raton Campus, central",
+      "gps": "26.3735, -80.1012",
+      "hours": "7am - 11pm",
+      "contact": "561-297-3730"
+    }
+  ],
+  "advisors": [
+    {
+      "department": "Computer Science",
+      "name": "Jane Doe",
+      "location": "Engineering East, Room 403",
+      "email": "jdoe_advisor@fau.edu",
+      "phone": "561-297-0001",
+      "hours": "Mon-Thu 9am-4pm (Walk-ins Wed 1pm-4pm)"
+    }
+  ],
+  "parking": [
+    {
+      "lot_name": "Lot 1 (Blue Lot)",
+      "type": "Student Commuter",
+      "availability": "Usually full by 10am",
+      "closest_buildings": ["Engineering East", "Science Building"]
+    },
+    {
+      "lot_name": "Parking Garage 1",
+      "type": "All Students / Faculty",
+      "availability": "Spots usually available on top floor",
+      "closest_buildings": ["Student Union", "Library"]
+    }
+  ]
+}
