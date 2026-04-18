@@ -314,17 +314,17 @@ def chat():
             else:
                 response += "\n\n(If you enable Location Services in your browser, I can calculate your walking distance and time to this building!)"
 
-    elif 'course' in user_input or 'class' in user_input:
-        response = "I can help you find a course! Try asking for specific courses like 'COP 3540 section 001', or 'STA 4821'."
-    elif 'advisor' in user_input:
-        adv = campus_data.get('advisors', [])[0]
-        response = f"For {adv['department']}, your advisor is **{adv['name']}**. They are located in {adv['location']}. Hours: {adv['hours']}. Email: {adv['email']}."
-    elif 'parking' in user_input:
-        response = "For Engineering East, the best parking is **Lot 1 (Blue Lot)**, but it's usually full by 10am. Alternatively, try **Parking Garage 1** near the Student Union."
-    elif 'hello' in user_input or 'hi' in user_input:
-        response = "Hello! I'm Owl-Advisor, your AI assistant for FAU. I can help you find courses, check waitlists, locate buildings, find your advisor, or get parking info. What do you need help with?"
-    else:
-        response = "I'm still learning! I have data on FAU courses, buildings, parking, and advisors. Try asking: 'Where is EE?', 'Tell me about COP 3530 section 001', or 'Who is the CS advisor?'."
+        elif 'course' in user_input or 'class' in user_input:
+            response = "I can help you find a course! Try asking for specific courses like 'COP 3540 section 001', or 'STA 4821'."
+        elif 'advisor' in user_input:
+            adv = campus_data.get('advisors', [])[0]
+            response = f"For {adv['department']}, your advisor is **{adv['name']}**. They are located in {adv['location']}. Hours: {adv['hours']}. Email: {adv['email']}."
+        elif 'parking' in user_input:
+            response = "For Engineering East, the best parking is **Lot 1 (Blue Lot)**, but it's usually full by 10am. Alternatively, try **Parking Garage 1** near the Student Union."
+        elif 'hello' in user_input or 'hi' in user_input:
+            response = "Hello! I'm Owl-Advisor, your AI assistant for FAU. I can help you find courses, check waitlists, locate buildings, find your advisor, or get parking info. What do you need help with?"
+        else:
+            response = "I'm still learning! I have data on FAU courses, buildings, parking, and advisors. Try asking: 'Where is EE?', 'Tell me about COP 3530 section 001', or 'Who is the CS advisor?'."
         
     return jsonify({"response": response})
 
